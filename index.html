@@ -17,9 +17,10 @@
 </head>
 <body>
   <model-viewer
+    id="mv"
     src="sistemas_exportados.glb"
     ar
-    ar-modes="webxr scene-viewer quick-look"
+    ar-modes="webxr scene-viewer"
     camera-controls
     auto-rotate
     autoplay
@@ -28,5 +29,14 @@
     exposure="1.1"
     alt="Sistemas Lineales en AR">
   </model-viewer>
+
+  <script>
+    const viewer = document.querySelector("#mv");
+    viewer.addEventListener("ar-status", (event) => {
+      if (event.detail.status === "session-started") {
+        viewer.play(); // Forzar animación al entrar en AR
+      }
+    });
+  </script>
 </body>
 </html>
