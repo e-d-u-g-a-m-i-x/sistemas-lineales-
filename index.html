@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Sistemas Lineales en AR</title>
+  <meta charset="UTF-8" />
+  <title>Sistemas Lineales AR</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
       margin: 0;
-      background: #111;
-      color: white;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      background-color: #111;
     }
     model-viewer {
       width: 100vw;
@@ -24,16 +17,16 @@
 </head>
 <body>
   <model-viewer
-    src="sistemas_lineales.glb"
+    src="sistemas_exportados.glb"
     ar
-    ar-modes="scene-viewer webxr quick-look"
-    environment-image="neutral"
+    ar-modes="webxr scene-viewer quick-look"
     camera-controls
     auto-rotate
     autoplay
+    environment-image="neutral"
     shadow-intensity="1"
     exposure="1.1"
-    alt="Visualización AR de sistemas lineales">
+    alt="Sistemas Lineales en AR">
   </model-viewer>
 </body>
 </html>
