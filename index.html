@@ -3,32 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistemas Lineales en AR</title>
+  <title>Sistemas Lineales 3D + AR</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
       margin: 0;
-      background-color: #111;
+      background: #111;
+      font-family: sans-serif;
     }
     model-viewer {
       width: 100vw;
       height: 100vh;
     }
-    #info {
+    .boton-ar {
       position: absolute;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.75);
+      background: #0a84ff;
       color: white;
-      padding: 12px 16px;
-      border-radius: 12px;
       font-size: 1rem;
-      text-align: center;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+
   <model-viewer
     id="visor"
     src="sistemas_exportados.glb"
@@ -38,26 +41,27 @@
     camera-controls
     auto-rotate
     autoplay
-    placement="floor"
     environment-image="neutral"
     shadow-intensity="1"
     exposure="1.1"
-    alt="Visualización AR de Sistemas Lineales"
+    alt="Modelo de Sistemas Lineales"
     interaction-prompt="none"
     xr-environment
   ></model-viewer>
 
-  <div id="info">Toca el modelo para alternar la animación. Espera a que cargue para usar AR.</div>
+  <button class="boton-ar" onclick="activarAR()">🔍 Ver en AR</button>
 
   <script>
     const visor = document.getElementById("visor");
-    visor.addEventListener("click", () => {
-      visor.paused = !visor.paused;
-    });
 
-    window.onload = () => {
-      setTimeout(() => visor.activateAR && visor.activateAR(), 3000);
-    };
+    function activarAR() {
+      if (visor.activateAR) {
+        visor.activateAR(); // Android: lanza Scene Viewer
+      } else {
+        alert("Tu dispositivo no soporta realidad aumentada.");
+      }
+    }
   </script>
+
 </body>
 </html>
