@@ -27,6 +27,7 @@
       border: none;
       border-radius: 12px;
       cursor: pointer;
+      z-index: 1;
     }
   </style>
 </head>
@@ -41,11 +42,12 @@
     camera-controls
     auto-rotate
     autoplay
+    interaction-prompt="when-focused"
+    interaction-prompt-style="basic"
     environment-image="neutral"
     shadow-intensity="1"
     exposure="1.1"
     alt="Modelo de Sistemas Lineales"
-    interaction-prompt="none"
     xr-environment
   ></model-viewer>
 
