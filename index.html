@@ -62,7 +62,7 @@
 
   <model-viewer
     id="visor"
-    src="sistemas_animado_final.glb"
+    src="sistemas_lineales.F7.glb"
     ar
     ar-modes="webxr"
     ar-scale="fixed"
@@ -93,7 +93,13 @@
         alert("Tu dispositivo no soporta realidad aumentada.");
       }
     }
-
+    
+  // Reducir velocidad de animación
+  visor.addEventListener("load", () => {
+    visor.animationName = visor.availableAnimations[0];  // activa la animación principal
+    visor.play();
+    visor.timeScale = 0.5;  // 🔁 velocidad al 50%
+  });
     // Ocultar instrucciones en pantallas grandes (PC)
     if (window.innerWidth > 768) {
       document.getElementById("instruccion").style.display = "none";
