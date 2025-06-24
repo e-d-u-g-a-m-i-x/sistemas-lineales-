@@ -93,7 +93,19 @@
         alert("Tu dispositivo no soporta realidad aumentada.");
       }
     }
-    
+     // Animación lenta con retardo de reinicio
+  visor.addEventListener("load", () => {
+    visor.animationName = visor.availableAnimations[0];
+    visor.timeScale = 0.5;
+    visor.play();
+
+    visor.addEventListener('animation-finish', () => {
+      setTimeout(() => {
+        visor.currentTime = 0;
+        visor.play();
+      }, 5000); // espera 5 segundos
+    });
+  });
   // Reducir velocidad de animación
   visor.addEventListener("load", () => {
     visor.animationName = visor.availableAnimations[0];  // activa la animación principal
